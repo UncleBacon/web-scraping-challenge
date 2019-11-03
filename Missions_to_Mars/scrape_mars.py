@@ -22,17 +22,12 @@ def scrape():
     soup = bs(html, 'html.parser')
     results = soup.find_all('li', class_="slide")
 
-    facts = {}
-
-    for result in results:
-        facts['news_title'] = result.find('div',class_="content_title").text
-        facts['news_description'] = result.find('div',class_="article_teaser_body").text
-        facts['news_images'] = nasa_news + result.a['href']
-       
+    for result in results[0]:
+        news_title = result.find('div',class_="content_title").text
+        news_description = result.find('div',class_="article_teaser_body").text
+        news_url = nasa_news + result.a['href']
+        
     time.sleep(1)
-    
-    # print('news complete')
-    # print('--------------')
     
     #Collect JPL Image
     jpl = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
@@ -47,13 +42,12 @@ def scrape():
     results = soup.find('figure', class_ = 'lede')
     base_url = browser.url[:24]
     img = results.a.img['src']
-    facts['jpl_featured_url'] = base_url + img
+
+    featured_img_url =  base_url + img
 
     
     time.sleep(1)
     
-    # print('JPL complete')
-    # print('--------------')
     
     #Mars Weather
     weather = 'https://twitter.com/marswxreport?lang=en'
@@ -63,22 +57,18 @@ def scrape():
     
     results = soup.find('div', class_="js-tweet-text-container")
     results.a.decompose()
-    facts['mars_weather'] = results.find('p').text
+    
+    mars_weather = results.find('p').text
     
     time.sleep(1)
-    
-    # print('weather complete')
-    # print('--------------')
     
     #Mars Facts
     space_facts = 'https://space-facts.com/mars/'
 
-    facts['mars_facts'] = pd.read_html(space_facts)[1].rename(columns = {0:'Fact',1:'Data'}).to_html(index=False).replace('\n','')
+    mars_facts = pd.read_html(space_facts)[1].rename(columns = {0:'Fact',1:'Data'}).to_html(index=False).replace('\n','')
 
     time.sleep(1)
     
-    # print('facts complete')
-    # print('--------------')
     
     #Mars Hemispheres
     hemispheres = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -92,29 +82,29 @@ def scrape():
     images = results.find_all('div')[:]
 
     #iterate through length of tags and collect hrefs, navigate to page and collect full image link 
-    title = []
-    hemi_url = []
+    hemisphere_image_urls = []
+
     for image in range(0,len(images)):
         if image == 0 or image % 2 == 0:
             url = base_url+images[image].a['href']
-            title.append(images[image].h3.text)
+            title = (images[image].h3.text)
             browser.visit(url)
             time.sleep(1)
             soup = bs(browser.html,'html.parser')
             results = soup.find_all('ul')[0]
             result = results.find_all('li')[0]
-            hemi_url.append(result.a['href'])
-    facts['hemi_title'] = title
-    facts['hemi_url'] = hemi_url
-    
-    # print('hemispheres complete')
-    # print('--------------') 
+            hemi_url = (result.a['href'])
+            hemisphere_image_urls.append({'title':title,
+                                          'img_url':hemi_url})
+    facts = {'news_title':news_title,
+             'news_description':news_description,
+             'news_url':news_url,
+             'featured_img_url':featured_img_url,
+             'mars_weather':mars_weather,
+             'mars_facts':mars_facts,
+            'hemi_img_url':hemisphere_image_urls}
     
     browser.visit('https://bootcampspot.com/')
 
 
     return facts
-
-
-
-

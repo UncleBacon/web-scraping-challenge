@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href= mars.css>
+
+    <title>Mars Facts</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="jumbotron text-center">
+        <h1>Out of this World Facts about Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Today's Facts!</a></p>
+      </div>
+
+      <!-- Mars News -->
+      <div class="row" id="mars-news">
+        <div class="col-md-12">
+          <h1>Latest Mars News</h1>
+          <h3 class="heading">{{fact.news_title}}</h3> 
+          <h4>{{fact.news_description}}</h4>
+        </div>
+      </div>
+      <!-- Mars Feature Image -->
+      <div class = "row">
+        <div class = "col-md-7">
+          <h1>Featured Image</h1>
+          <img class="img-responsive" src = {{fact.featured_img_url}} alt = "JPL featured Image">
+        </div>
+        <!-- Mars Weather -->
+        <div class = "col-md-5">
+          <div class="card">
+              <div class="card-body">
+                <h3>Current Weather on Mars</h3>
+                {{fact.mars_weather}}
+              </div>
+          </div>
+          <br>
+          <!-- Mars Facts Table -->
+          <div class = "table">
+              {% block content %}
+              <h1>Mars Facts</h1>
+              {{fact.mars_facts | safe}}
+              {% endblock %}
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class = "row">
+          <!-- Mars Hemisphere images -->
+          <div class = "col-md-12 hemisphere">
+            <h2 style = "text-align:center; border-bottom: 2px,solid,grey">Mars Hemispheres</h2>
+          </div>
+        </div>
+        <div class = "row">
+          <div class = "col-md-6">
+            <div class="card" style="width: auto;">
+                <img class="card-img-top img-responsive" src={{fact.hemi_img_url[0]['img_url']}} alt={{fact.hemi_img_url[0]['title']}}>
+                <div class="card-body" style = "border: 3px black;">
+                  <p class="card-text"><strong>{{fact.hemi_img_url[0]['title']}}</strong></p>
+                </div>
+            </div>
+          </div>
+          <div class = "col-md-6">
+            <div class="card" style="width: auto;">
+              <img class="card-img-top img-responsive" src={{fact.hemi_img_url[1]['img_url']}} alt={{fact.hemi_img_url[1]['title']}}>
+              <div class="card-body">
+                <p class="card-text"><strong>{{fact.hemi_img_url[1]['title']}}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "row">
+          <div class = "col-md-6">
+            <div class="card" style="width: auto;">
+              <img class="card-img-top img-responsive" src={{fact.hemi_img_url[2]['img_url']}} alt={{fact.hemi_img_url[2]['title']}}>
+              <div class="card-body">
+                <p class="card-text"><strong>{{fact.hemi_img_url[2]['title']}}</strong></p>
+            </div>
+            </div>
+          </div>
+          <div class = "col-md-6">
+            <div class="card" style="width: auto;">
+              <img class="card-img-top img-responsive" src={{fact.hemi_img_url[3]['img_url']}} alt={{fact.hemi_img_url[3]['title']}}>
+              <div class="card-body">
+                <p class="card-text"><strong>{{fact.hemi_img_url[3]['title']}}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
+
