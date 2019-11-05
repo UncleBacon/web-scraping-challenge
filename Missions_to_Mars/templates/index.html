@@ -22,7 +22,7 @@
 
       <!-- Mars News -->
       <div class="row" id="mars-news">
-        <div class="col-md-12">
+        <div class="col-md-12"style ="border:2px black;background:whitesmoke;">
           <h1>Latest Mars News</h1>
           <h3 class="heading">{{fact.news_title}}</h3> 
           <h4>{{fact.news_description}}</h4>
@@ -37,53 +37,54 @@
         <!-- Mars Weather -->
         <div class = "col-md-5">
           <div class="card">
-              <div class="card-body">
-                <h3>Current Weather on Mars</h3>
-                {{fact.mars_weather}}
-              </div>
+            <div class="card-body" style ="border:2px black;background:whitesmoke;">
+              <h3 style = "text-align:center;">Current Weather on Mars</h3>
+              {{fact.mars_weather}}
+            </div>
           </div>
           <br>
           <!-- Mars Facts Table -->
-          <div class = "table">
-              {% block content %}
-              <h1>Mars Facts</h1>
-              {{fact.mars_facts | safe}}
-              {% endblock %}
+          <div class = "table"style ="border:2px black;background:whitesmoke;text-align: center;">
+            {% block content %}
+            <h1>Mars Facts</h1>
+            {{fact.mars_facts | safe}}
+            {% endblock %}
           </div>
         </div>
       </div>
       <br>
       <br>
-      <div class = "row">
-          <!-- Mars Hemisphere images -->
-          <div class = "col-md-12 hemisphere">
+      <!-- Mars Hemisphere images -->
+      <div class = "container" style = "border: 3px; background: whitesmoke">
+        <div class = "row">
+          <div class = "col-md-12 hemisphere" style = 'border-top: 4px black'>
             <h2 style = "text-align:center; border-bottom: 2px,solid,grey">Mars Hemispheres</h2>
           </div>
         </div>
         <div class = "row">
-          <div class = "col-md-6">
-            <div class="card" style="width: auto;">
+            <div class = "col-md-6">
+              <div class="card" style="margin: 0%; width: auto;border:2px black;">
                 <img class="card-img-top img-responsive" src={{fact.hemi_img_url[0]['img_url']}} alt={{fact.hemi_img_url[0]['title']}}>
                 <div class="card-body" style = "border: 3px black;">
-                  <p class="card-text"><strong>{{fact.hemi_img_url[0]['title']}}</strong></p>
+                  <p class="card-text" style = 'font-size: 25px;'><strong>{{fact.hemi_img_url[0]['title']}}</strong></p>
                 </div>
-            </div>
-          </div>
-          <div class = "col-md-6">
-            <div class="card" style="width: auto;">
-              <img class="card-img-top img-responsive" src={{fact.hemi_img_url[1]['img_url']}} alt={{fact.hemi_img_url[1]['title']}}>
-              <div class="card-body">
-                <p class="card-text"><strong>{{fact.hemi_img_url[1]['title']}}</strong></p>
               </div>
             </div>
-          </div>
+            <div class = "col-md-6">
+                <div class="card" style="width: auto;">
+                  <img class="card-img-top img-responsive" src={{fact.hemi_img_url[1]['img_url']}} alt={{fact.hemi_img_url[1]['title']}}>
+                  <div class="card-body">
+                    <p class="card-text"style = 'font-size: 25px;'><strong>{{fact.hemi_img_url[1]['title']}}</strong></p>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class = "row">
           <div class = "col-md-6">
             <div class="card" style="width: auto;">
               <img class="card-img-top img-responsive" src={{fact.hemi_img_url[2]['img_url']}} alt={{fact.hemi_img_url[2]['title']}}>
               <div class="card-body">
-                <p class="card-text"><strong>{{fact.hemi_img_url[2]['title']}}</strong></p>
+                <p class="card-text"style = 'font-size: 25px;'><strong>{{fact.hemi_img_url[2]['title']}}</strong></p>
             </div>
             </div>
           </div>
@@ -91,11 +92,12 @@
             <div class="card" style="width: auto;">
               <img class="card-img-top img-responsive" src={{fact.hemi_img_url[3]['img_url']}} alt={{fact.hemi_img_url[3]['title']}}>
               <div class="card-body">
-                <p class="card-text"><strong>{{fact.hemi_img_url[3]['title']}}</strong></p>
+                <p class="card-text"style = 'font-size: 25px;'><strong>{{fact.hemi_img_url[3]['title']}}</strong></p>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
   </body>
 </html>

@@ -56,7 +56,10 @@ def scrape():
     soup = bs(html, 'html.parser')
     
     results = soup.find('div', class_="js-tweet-text-container")
-    results.a.decompose()
+    try:
+        results.a.decompose()
+    except:
+        pass
     
     mars_weather = results.find('p').text
     
@@ -102,9 +105,11 @@ def scrape():
              'featured_img_url':featured_img_url,
              'mars_weather':mars_weather,
              'mars_facts':mars_facts,
-            'hemi_img_url':hemisphere_image_urls}
+             'hemi_img_url':hemisphere_image_urls
+            }
     
     browser.visit('https://bootcampspot.com/')
 
 
     return facts
+
