@@ -23,6 +23,13 @@
         <li>mars_app.py </li>
         <li>Jupyter Notebook</li>
     </ul>
+    <ol>
+        <li>Templates</li>
+        <ul>
+            <li>templates.html</li>
+            <li>style.css</li>
+        </ul>
+    </ol>
 </ol>
 
 <h1>Instructions</h1>
