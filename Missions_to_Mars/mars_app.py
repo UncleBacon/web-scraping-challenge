@@ -14,9 +14,11 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    facts = mongo.db.facts.find_one()
-    return render_template("index.html", fact=facts)
-
+    try:
+        facts = mongo.db.facts.find_one()
+        return render_template("index.html", fact=facts)
+    except:
+        return redirect('/scrape')       
 
 @app.route("/scrape")
 def scraper():
