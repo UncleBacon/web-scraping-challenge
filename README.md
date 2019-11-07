@@ -3,7 +3,7 @@ Web Scraping + Flask HW
 
 <h1>Repo Contents</h1>
 <ol>
-    <li 'Images/Mars Facts_files' contains:</li>
+    <li> 'Images/Mars Facts_files' contains:</li>
         <ul>
             <li> -Website images</li>
         </ul>
