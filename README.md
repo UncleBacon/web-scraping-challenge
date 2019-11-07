@@ -1,7 +1,6 @@
 # web-scraping-challenge
-<h2>Web Scraping + Flask HW</h2>
 
-<h1>Necessary libraries</h1>
+<h1>Required libraries</h1>
 <ul>
     <li>flask</li>
     <li>flask_pymongo</li>
