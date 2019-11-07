@@ -2,9 +2,14 @@
 Web Scraping + Flask HW
 
 <h1>Repo Contents</h1>
-1. 'Images/Mars Facts_files' contains:
-    -Website images
-2. '/Missions_to_Mars' contains:
-    -web_scrape.py
-    -mars_app.py 
-    -Jupyter Notebook
+<ol>
+    <li 'Images/Mars Facts_files' contains:</li>
+        <ul>
+            <li> -Website images</li>
+        </ul>
+    <li> '/Missions_to_Mars' contains:</li>
+    <ul>
+        <li>web_scrape.py</li>
+        <li>mars_app.py </li>
+        <li>Jupyter Notebook</li>
+    </ul>
