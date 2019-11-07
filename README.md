@@ -14,11 +14,11 @@
 
 <h1>Repo Contents</h1>
 <ol>
-    <li> 'Images/Mars Facts_files' contains:</li>
+    <li> <h2>Images/Mars Facts_files</h2></li>
         <ul>
             <li> -Website images</li>
         </ul>
-    <li> 'Missions_to_Mars' contains:</li>
+    <li> <h2>Missions_to_Mars</h2></li>
     <ul>
         <li>web_scrape.py</li>
         <li>mars_app.py </li>
