@@ -4,18 +4,18 @@
 <ul>
     <li>flask</li>
     <li>flask_pymongo</li>
+    <li>pymongo</li>
     <li>splinter</li>
     <li>bs4</li>
     <li>pandas</li>
     <li>time</li>
-    <li>pymongo</li>
 </ul>
 
 <h1>Repo Contents</h1>
 <ol>
     <li> <h2>Images/Mars Facts_files</h2></li>
         <ul>
-            <li> -Website images</li>
+            <li> Website images</li>
         </ul>
     <li> <h2>Missions_to_Mars</h2></li>
     <ul>
