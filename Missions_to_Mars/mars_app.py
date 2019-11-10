@@ -18,7 +18,7 @@ def index():
         facts = mongo.db.facts.find_one()
         return render_template("index.html", fact=facts)
     except:
-        return redirect('/scrape')       
+        return render_template("dummy_index.html")       
 
 @app.route("/scrape")
 def scraper():
